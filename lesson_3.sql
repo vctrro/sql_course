@@ -1,3 +1,6 @@
+--добавить ссылку на свою схему--
+set search_path to rodionov_v
+
 --добавляем внешний ключ для orders.delivery_id ссылающийся на delivery.delivery_id
 alter table orders add constraint orders_delivery_fkey foreign key (delivery_id) references delivery(delivery_id)
 
