@@ -16,7 +16,7 @@ WITH prod_count AS (
     FROM product AS p
     JOIN category AS c ON p.category_id = c.category_id
     GROUP BY c.category)
-SELECT category 
+SELECT category, p_count 
 FROM prod_count
 WHERE p_count = (SELECT MAX(p_count) FROM prod_count)
 ;
