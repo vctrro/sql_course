@@ -31,7 +31,7 @@ WHERE c.last_name = 'Williams' AND c.first_name = 'Linda' AND p.product = 'Че�
 SELECT first_name, last_name
 FROM customer 
 WHERE address_id = (SELECT address_id FROM customer WHERE first_name = 'Linda' AND last_name = 'Williams')
-;
+UNION
 SELECT first_name, last_name
 FROM staff
 WHERE address_id = (SELECT address_id FROM customer WHERE first_name = 'Linda' AND last_name = 'Williams')
