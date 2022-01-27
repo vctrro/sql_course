@@ -1,6 +1,7 @@
 --Работает в PostgreSQL 11 и выше.
 
 --временная таблица хорошее решение, только первичный ключ не нужен.
+drop table rand_id;
 create temporary table rand_id (
 	new_id serial,
     order_id int
@@ -16,7 +17,7 @@ from (
     order by random()) t;
 
 --создаем первую процедуру, в которой вносим данные в delivery
-create procedure delivery_insert() as $$
+create or replace procedure delivery_insert() as $$
 	--объявляем переменные под количество адресов, сотрудников и цикла
 	declare 
 		address_count int; 
@@ -52,7 +53,7 @@ $$ language plpgsql;
 --drop procedure delivery_insert()
 
 --создаем процедуру для апдейта orders
-create procedure order_update(d_id int, o_id int) as $$
+create or replace procedure order_update(d_id int, o_id int) as $$
 	begin
 		--апдейтим
 	    update orders 

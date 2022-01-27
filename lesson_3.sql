@@ -1,5 +1,5 @@
 --добавить ссылку на свою схему--
-SET search_path TO rodionov_v
+SET search_path TO ro;
 
 --добавляем внешний ключ для orders.delivery_id ссылающийся на delivery.delivery_id
 ALTER TABLE orders ADD CONSTRAINT orders_delivery_fkey
